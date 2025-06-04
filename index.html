@@ -4,16 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
-
     <title>World Clock</title>
   </head>
   <body>
-    <h1>World Clock</h1>
-    <footer>
-      Coded by <a href="https://github.com/ky-m0">ky-m0</a>, open sourced on
-      <a href="https://github.com/ky-m0/world-clock">GitHub</a> and hosted on
-      <a href="https://www.netlify.com/">Netlify</a>
-    </footer>
+    <div class="container">
+      <h1>World Clock</h1>
+      <select>
+        <option value="">Select a city</option>
+        <option value="">London</option>
+        <option value="">Los Angeles</option>
+        <option value="">Sydney</option>
+        <option value="">Auckland</option>
+      </select>
+
+      <div class="city">
+        <h2>New York 🇺🇸</h2>
+        <div class="date">3 June 2025</div>
+        <div class="time">9:30:15 PM</div>
+      </div>
+      <div class="city">
+        <h2>Tokyo 🇺🇯🇵</h2>
+        <div class="date">4 June 2025</div>
+        <div class="time">10:30:15 AM</div>
+      </div>
+
+      <footer>
+        Coded by <a href="https://github.com/ky-m0">ky-m0</a>, open sourced on
+        <a href="https://github.com/ky-m0/world-clock">GitHub</a> and hosted on
+        <a href="https://www.netlify.com/">Netlify</a>
+      </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
