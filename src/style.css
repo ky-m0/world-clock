@@ -37,8 +37,8 @@ select {
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px solid #2e4057;
-  margin: 10px 4px;
-  padding: 12px 0px;
+  margin: 0 4px;
+  padding: 20px 0px;
 }
 
 .city:last-child {
