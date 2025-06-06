@@ -21,14 +21,17 @@ select {
   display: block;
   width: 100%;
   border-radius: 6px;
-  padding: 12px;
+  border: #2e4057 solid 0.5px;
+  padding: 10px;
   background-color: white;
+  font-size: 14px;
+  box-shadow: rgba(103, 103, 103, 0.1) 0px 8px 10px 0px;
 }
 
 .container {
   max-width: 450px;
   margin: 0 auto;
-  background: white;
+  background: #fdfbf8;
   border-radius: 10px;
   padding: 10px 25px;
 }
@@ -63,7 +66,7 @@ select {
 }
 
 footer {
-  color: white;
+  color: #fdfbf8;
   text-align: center;
   max-width: 450px;
   margin: 10px auto;
