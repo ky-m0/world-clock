@@ -1,7 +1,34 @@
 // show time and date on large 'tiles' (div class="city")
 function updateTime() {
-  // New York
+  // Current location
+  //let currentLocationElement = document.querySelector("#current-location");
+  //if (currentLocationElement) {
+  //  let currentLocationDateElement =
+  //    currentLocationElement.querySelector(".date");
+  //  let currentLocationTimeElement =
+  //    currentLocationElement.querySelector(".time");
+  //  let currentLocationTime = moment().tz.guess();
 
+  //  currentLocationDateElement.innerHTML =
+  //    currentLocationTime.format("dddd, d MMMM YYYY");
+  //  currentLocationTimeElement.innerHTML = currentLocationTime.format(
+  //    "h:mm:ss [<small>]A[</small>]"
+  //  );
+  //}
+
+  // Melbourne
+  let melbourneElement = document.querySelector("#melbourne");
+  if (melbourneElement) {
+    let melbourneDateElement = melbourneElement.querySelector(".date");
+    let melbourneTimeElement = melbourneElement.querySelector(".time");
+    let melbourneTime = moment().tz("Australia/Melbourne");
+
+    melbourneDateElement.innerHTML = melbourneTime.format("dddd, d MMMM YYYY");
+    melbourneTimeElement.innerHTML = melbourneTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+  // New York
   let newYorkElement = document.querySelector("#new-york");
   if (newYorkElement) {
     let newYorkDateElement = newYorkElement.querySelector(".date");
@@ -14,15 +41,15 @@ function updateTime() {
     );
   }
 
-  // Tokyo
-  let tokyoElement = document.querySelector("#tokyo");
-  if (tokyoElement) {
-    let tokyoDateElement = tokyoElement.querySelector(".date");
-    let tokyoTimeElement = tokyoElement.querySelector(".time");
-    let tokyoTime = moment().tz("Asia/Tokyo");
+  // London
+  let londonElement = document.querySelector("#london");
+  if (londonElement) {
+    let londonDateElement = londonElement.querySelector(".date");
+    let londonTimeElement = londonElement.querySelector(".time");
+    let londonTime = moment().tz("Europe/London");
 
-    tokyoDateElement.innerHTML = tokyoTime.format("dddd, d MMMM YYYY");
-    tokyoTimeElement.innerHTML = tokyoTime.format(
+    londonDateElement.innerHTML = londonTime.format("dddd, d MMMM YYYY");
+    londonTimeElement.innerHTML = londonTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
   }
@@ -35,6 +62,9 @@ function updateTime() {
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   //console.log(cityTimeZone);
@@ -52,6 +82,7 @@ function updateCity(event) {
     </div>
     `;
 }
+// TODO: add update every second after UI updated
 
 // call function to show date and time on tiles
 updateTime();
