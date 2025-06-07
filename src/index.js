@@ -9,7 +9,7 @@ function updateTime() {
 
     melbourneDateElement.innerHTML = melbourneTime.format("dddd, d MMMM YYYY");
     melbourneTimeElement.innerHTML = melbourneTime.format(
-      "h:mm:ss [<small>]A[</small>]"
+      "h:mm [<small>]A[</small>]"
     );
   }
   // New York
@@ -21,7 +21,7 @@ function updateTime() {
 
     newYorkDateElement.innerHTML = newYorkTime.format("dddd, d MMMM YYYY");
     newYorkTimeElement.innerHTML = newYorkTime.format(
-      "h:mm:ss [<small>]A[</small>]"
+      "h:mm [<small>]A[</small>]"
     );
   }
 
@@ -34,7 +34,7 @@ function updateTime() {
 
     londonDateElement.innerHTML = londonTime.format("dddd, d MMMM YYYY");
     londonTimeElement.innerHTML = londonTime.format(
-      "h:mm:ss [<small>]A[</small>]"
+      "h:mm [<small>]A[</small>]"
     );
   }
 }
@@ -59,9 +59,9 @@ function updateCity(event) {
             <h2>${cityName}</h2>
             <div class="date">${cityTime.format("dddd, d MMMM YYYY")}</div>
         </div>
-        <div class="time">${cityTime.format(
-          "h:mm:ss"
-        )} <small>${cityTime.format("A")}</small></div>
+        <div class="time">${cityTime.format("h:mm")} <small>${cityTime.format(
+    "A"
+  )}</small></div>
     </div>
     <a href="/"><small>Reset city</small></a>
     `;
@@ -70,9 +70,11 @@ function updateCity(event) {
 
 // call function to show date and time on tiles
 updateTime();
-// update page every second to show accurate seconds
+// update page every second to show accurate minutes
 setInterval(updateTime, 1000);
 
 // event listener on select
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
+
+//  if selected, clear existing interval, set new interval
