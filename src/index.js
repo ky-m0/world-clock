@@ -1,21 +1,5 @@
 // show time and date on large 'tiles' (div class="city")
 function updateTime() {
-  // Current location
-  //let currentLocationElement = document.querySelector("#current-location");
-  //if (currentLocationElement) {
-  //  let currentLocationDateElement =
-  //    currentLocationElement.querySelector(".date");
-  //  let currentLocationTimeElement =
-  //    currentLocationElement.querySelector(".time");
-  //  let currentLocationTime = moment().tz.guess();
-
-  //  currentLocationDateElement.innerHTML =
-  //    currentLocationTime.format("dddd, d MMMM YYYY");
-  //  currentLocationTimeElement.innerHTML = currentLocationTime.format(
-  //    "h:mm:ss [<small>]A[</small>]"
-  //  );
-  //}
-
   // Melbourne
   let melbourneElement = document.querySelector("#melbourne");
   if (melbourneElement) {
@@ -67,8 +51,7 @@ function updateCity(event) {
   }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
-  //console.log(cityTimeZone);
-  //console.log(cityTime.format("dddd, d MMMM YYYY"));
+
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
     <div class="city">
@@ -89,6 +72,6 @@ updateTime();
 // update page every second to show accurate seconds
 setInterval(updateTime, 1000);
 
-// 1. event listener on select
+// event listener on select
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
