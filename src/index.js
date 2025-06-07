@@ -63,6 +63,7 @@ function updateCity(event) {
           "h:mm:ss"
         )} <small>${cityTime.format("A")}</small></div>
     </div>
+    <a href="/"><small>Reset city</small></a>
     `;
 }
 // TODO: add update every second after UI updated

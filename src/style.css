@@ -13,10 +13,6 @@ h2 {
   margin: 0;
 }
 
-a {
-  color: #f6d8ae;
-}
-
 select {
   display: block;
   width: 100%;
@@ -71,4 +67,8 @@ footer {
   max-width: 450px;
   margin: 10px auto;
   font-size: small;
+}
+
+footer a {
+  color: #f6d8ae;
 }
