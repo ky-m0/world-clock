@@ -63,14 +63,14 @@ function updateCity(event) {
     "A"
   )}</small></div>
     </div>
-    <a href="/"><small>Reset city</small></a>
+    <a href="/"><small>Reset city 🔄</small></a>
     `;
 }
 // TODO: add update every second after UI updated
 
 // call function to show date and time on tiles
 updateTime();
-// update page every second to show accurate minutes
+// update page every second to show accurate minutes (within 1 second accuracy)
 setInterval(updateTime, 1000);
 
 // event listener on select
