@@ -9,7 +9,7 @@ function updateTime() {
     let melbourneTimeElement = melbourneElement.querySelector(".time");
     let melbourneTime = moment().tz("Australia/Melbourne");
 
-    melbourneDateElement.innerHTML = melbourneTime.format("dddd, d MMMM YYYY");
+    melbourneDateElement.innerHTML = melbourneTime.format("dddd, Do MMMM YYYY");
     melbourneTimeElement.innerHTML = melbourneTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
@@ -21,7 +21,7 @@ function updateTime() {
     let newYorkTimeElement = newYorkElement.querySelector(".time");
     let newYorkTime = moment().tz("America/New_York");
 
-    newYorkDateElement.innerHTML = newYorkTime.format("dddd, d MMMM YYYY");
+    newYorkDateElement.innerHTML = newYorkTime.format("dddd, Do MMMM YYYY");
     newYorkTimeElement.innerHTML = newYorkTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
@@ -34,7 +34,7 @@ function updateTime() {
     let londonTimeElement = londonElement.querySelector(".time");
     let londonTime = moment().tz("Europe/London");
 
-    londonDateElement.innerHTML = londonTime.format("dddd, d MMMM YYYY");
+    londonDateElement.innerHTML = londonTime.format("dddd, Do MMMM YYYY");
     londonTimeElement.innerHTML = londonTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
@@ -60,7 +60,7 @@ function updateCity(event) {
     <div class="city">
         <div>
             <h2>${cityName}</h2>
-            <div class="date">${cityTime.format("dddd, d MMMM YYYY")}</div>
+            <div class="date">${cityTime.format("dddd, Do MMMM YYYY")}</div>
         </div>
         <div class="time">${cityTime.format(
           "h:mm:ss"
@@ -79,7 +79,7 @@ function updateCity(event) {
     let dateElement = document.querySelector(".city .date");
     let timeElement = document.querySelector(".city .time");
 
-    dateElement.innerHTML = newTime.format("dddd, d MMMM YYYY");
+    dateElement.innerHTML = newTime.format("dddd, Do MMMM YYYY");
     timeElement.innerHTML = `${newTime.format(
       "h:mm:ss"
     )} <small>${newTime.format("A")}</small>`;
