@@ -34,7 +34,7 @@ select {
 
 .container {
   max-width: 450px;
-  margin: 0 auto;
+  margin: 60px auto 0px auto;
   background: #fdfbf8;
   border-radius: 10px;
   padding: 10px 25px;

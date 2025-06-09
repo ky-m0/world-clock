@@ -1,3 +1,5 @@
+// declare variable for timer interval
+let cityInterval = null;
 // show time and date on large 'tiles' (div class="city")
 function updateTime() {
   // Melbourne
@@ -9,7 +11,7 @@ function updateTime() {
 
     melbourneDateElement.innerHTML = melbourneTime.format("dddd, d MMMM YYYY");
     melbourneTimeElement.innerHTML = melbourneTime.format(
-      "h:mm [<small>]A[</small>]"
+      "h:mm:ss [<small>]A[</small>]"
     );
   }
   // New York
@@ -21,7 +23,7 @@ function updateTime() {
 
     newYorkDateElement.innerHTML = newYorkTime.format("dddd, d MMMM YYYY");
     newYorkTimeElement.innerHTML = newYorkTime.format(
-      "h:mm [<small>]A[</small>]"
+      "h:mm:ss [<small>]A[</small>]"
     );
   }
 
@@ -34,18 +36,19 @@ function updateTime() {
 
     londonDateElement.innerHTML = londonTime.format("dddd, d MMMM YYYY");
     londonTimeElement.innerHTML = londonTime.format(
-      "h:mm [<small>]A[</small>]"
+      "h:mm:ss [<small>]A[</small>]"
     );
   }
 }
 
-// steps - update city tiles for new cities
-
-// update UI
-// function to replace the city div
-
+// update city tile for selected city (replaces the city div)
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  //exit / avoid errors if 'select a city' is selected
+  if (cityTimeZone === "") {
+    return;
+  }
+  // Guess user's actual time zone, based on their device
   if (cityTimeZone === "current") {
     cityTimeZone = moment.tz.guess();
   }
@@ -59,22 +62,35 @@ function updateCity(event) {
             <h2>${cityName}</h2>
             <div class="date">${cityTime.format("dddd, d MMMM YYYY")}</div>
         </div>
-        <div class="time">${cityTime.format("h:mm")} <small>${cityTime.format(
-    "A"
-  )}</small></div>
+        <div class="time">${cityTime.format(
+          "h:mm:ss"
+        )} <small>${cityTime.format("A")}</small></div>
     </div>
     <a href="/"><small>Reset city 🔄</small></a>
     `;
+
+  // clear any previous interval
+  if (cityInterval) {
+    clearInterval(cityInterval);
+  }
+  // start new timer for a selected city - get current date and time, then update for .date and .time inside .city
+  cityInterval = setInterval(function () {
+    let newTime = moment().tz(cityTimeZone);
+    let dateElement = document.querySelector(".city .date");
+    let timeElement = document.querySelector(".city .time");
+
+    dateElement.innerHTML = newTime.format("dddd, d MMMM YYYY");
+    timeElement.innerHTML = `${newTime.format(
+      "h:mm:ss"
+    )} <small>${newTime.format("A")}</small>`;
+  }, 1000);
 }
-// TODO: add update every second after UI updated
 
 // call function to show date and time on tiles
 updateTime();
 // update page every second to show accurate minutes (within 1 second accuracy)
 setInterval(updateTime, 1000);
 
-// event listener on select
-let citiesSelectElement = document.querySelector("#city");
+// event listener on city selection
+let citiesSelectElement = document.querySelector("#city-selector");
 citiesSelectElement.addEventListener("change", updateCity);
-
-//  if selected, clear existing interval, set new interval
